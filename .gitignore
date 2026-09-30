@@ -443,3 +443,6 @@ appsettings.*.Local.json
 *.db-shm
 *.sqlite-wal
 *.sqlite-shm
+
+# Environment file
+.env
