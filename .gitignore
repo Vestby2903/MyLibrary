@@ -427,3 +427,19 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# JetBrains Rider / .idea
+.idea/
+*.sln.iml
+
+# Local appsettings overrides
+appsettings.Local.json
+appsettings.*.Local.json
+
+# SQLite local databases
+*.db
+*.sqlite
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
