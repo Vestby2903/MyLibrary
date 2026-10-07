@@ -7,6 +7,6 @@ public interface IBookRepository
    Task<IEnumerable<Book>> GetAllAsync();
    Task <Book?> GetByIdAsync(int id);
    Task AddAsync(Book  book);
-   Task UpdateAsync(Book book);
-   Task RemoveAsync(Book book);
+   void Update(Book book);
+   void Remove(Book book);
 }
