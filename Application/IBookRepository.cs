@@ -4,9 +4,9 @@ namespace Application;
 
 public interface IBookRepository
 {
-    public Task<IEnumerable<Book>> GetAllAsync();
-    public Task <Book?> GetByIdAsync(int id);
-    public Task AddAsync(Book  book);
-    public Task UpdateAsync(Book book);
-    public Task RemoveAsync(Book book);
+   Task<IEnumerable<Book>> GetAllAsync();
+   Task <Book?> GetByIdAsync(int id);
+   Task AddAsync(Book  book);
+   Task UpdateAsync(Book book);
+   Task RemoveAsync(Book book);
 }
