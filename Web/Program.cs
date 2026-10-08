@@ -1,10 +1,16 @@
+using Application;
 using Infrastructure;
+using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<ICollectionRepository, CollectionRepository>();
 
 // Register EF Core with SQL Server and point migrations to Infrastructure
 builder.Services.AddDbContext<LibraryDbContext>(options =>

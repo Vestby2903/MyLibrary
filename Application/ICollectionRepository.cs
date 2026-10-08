@@ -4,9 +4,9 @@ namespace Application;
 
 public interface ICollectionRepository
 {
-    Task<IEnumerable<Collection>> GetAllAsync();
-    Task <Collection?> GetByIdAsync(int id);
-    Task AddAsync(Collection collection);
+    Task<IEnumerable<Collection>> GetAllAsync(CancellationToken cancellationToken = default);
+    Task <Collection?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+    void Add(Collection collection);
     void Update(Collection collection);
     void Remove(Collection collection);
 }

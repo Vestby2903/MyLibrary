@@ -13,19 +13,19 @@ public class BookRepository : IBookRepository
         _dbContext = dbContext;
     }
     
-    public async Task<IEnumerable<Book>> GetAllAsync()
+    public async Task<IEnumerable<Book>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        return await _dbContext.Books.ToListAsync();
+        return await _dbContext.Books.ToListAsync(cancellationToken);
     }
 
-    public async Task<Book?> GetByIdAsync(int id)
+    public async Task<Book?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
     {
-        return await _dbContext.Books.FindAsync(id);
+        return await _dbContext.Books.FindAsync([id], cancellationToken);
     }
 
-    public async Task AddAsync(Book book)
+    public void Add(Book book)
     {
-        await _dbContext.Books.AddAsync(book);
+        _dbContext.Books.Add(book);
     }
 
     public void Update(Book book)

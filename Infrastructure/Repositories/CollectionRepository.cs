@@ -13,19 +13,19 @@ public class CollectionRepository : ICollectionRepository
         _dbContext = dbContext;
     }
 
-    public async Task<IEnumerable<Collection>> GetAllAsync()
+    public async Task<IEnumerable<Collection>> GetAllAsync(CancellationToken cancellationToken)
     {
-        return await _dbContext.Collections.ToListAsync();
+        return await _dbContext.Collections.ToListAsync(cancellationToken);
     }
 
-    public async Task<Collection?> GetByIdAsync(int id)
+    public async Task<Collection?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
     {
-        return await _dbContext.Collections.FindAsync(id);
+        return await _dbContext.Collections.FindAsync([id], cancellationToken);
     }
 
-    public async Task AddAsync(Collection collection)
+    public void Add(Collection collection)
     {
-        await _dbContext.Collections.AddAsync(collection);
+        _dbContext.Collections.Add(collection);
     }
 
     public void Update(Collection collection)
