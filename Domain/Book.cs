@@ -18,4 +18,38 @@ public class Book
         Title  = null!;
         Author = null!;
     }
+
+    public void UpdateTitle(string title)
+    {
+        if (string.IsNullOrEmpty(title))
+        {
+            throw new ArgumentException("Title cannot be null or empty",  nameof(title));
+        }
+
+        // Updated is equal to existing?
+        // Don't mark as updated
+        if (Title == title)
+        {
+            return;
+        }
+
+        Title = title;
+    }
+    
+    public void UpdateAuthor(string author)
+    {
+        if (string.IsNullOrEmpty(author))
+        {
+            throw new ArgumentException("Author cannot be null or empty",  nameof(author));
+        }
+
+        // Updated is equal to existing?
+        // Don't mark as updated
+        if (Author == author)
+        {
+            return;
+        }
+
+        Author = author;
+    }
 }
