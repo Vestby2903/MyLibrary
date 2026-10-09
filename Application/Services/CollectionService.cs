@@ -1,17 +1,22 @@
 ﻿using Application.DTOs;
+using Application.ServiceInterfaces;
 using Domain;
 
 namespace Application.Services;
 
-public class CollectionService
+public class CollectionService : ICollectionService
 {
     private readonly ICollectionRepository _collectionRepository;
     private readonly IBookRepository _bookRepository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public CollectionService(ICollectionRepository collectionRepository, IUnitOfWork unitOfWork)
+    public CollectionService(
+        ICollectionRepository collectionRepository, 
+        IBookRepository bookRepository, 
+        IUnitOfWork unitOfWork)
     {
         _collectionRepository = collectionRepository;
+        _bookRepository = bookRepository;
         _unitOfWork = unitOfWork;
     }
 

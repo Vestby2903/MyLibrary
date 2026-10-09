@@ -1,9 +1,10 @@
 ﻿using Application.DTOs;
+using Application.ServiceInterfaces;
 using Domain;
 
 namespace Application.Services;
 
-public class BookService
+public class BookService : IBookService
 {
     private readonly  IBookRepository _bookRepository;
     private readonly IUnitOfWork _unitOfWork;
