@@ -1,4 +1,6 @@
 using Application;
+using Application.ServiceInterfaces;
+using Application.Services;
 using Infrastructure;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +13,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<ICollectionRepository, CollectionRepository>();
+builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<ICollectionService, CollectionService>();
 
 // Register EF Core with SQL Server and point migrations to Infrastructure
 builder.Services.AddDbContext<LibraryDbContext>(options =>
